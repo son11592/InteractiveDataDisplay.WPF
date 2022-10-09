@@ -18,6 +18,10 @@ namespace InteractiveDataDisplay.WPF
     {
         private PlotBase masterPlot = null;
         private Axis axis;
+        public Axis Axis
+        {
+            get { return axis; }
+        }
 
         /// <summary>
         /// Initializes new instance of <see cref="PlotAxis"/> class
@@ -45,7 +49,7 @@ namespace InteractiveDataDisplay.WPF
         }
 
         /// <summary>
-        /// Measures the size in layout required for child elements and determines a size for parent. 
+        /// Measures the size in layout required for child elements and determines a size for parent.
         /// </summary>
         /// <param name="availableSize">The available size that this element can give to child elements. Infinity can be specified as a value to indicate that the element will size to whatever content is available.</param>
         /// <returns>The size that this element determines it needs during layout, based on its calculations of child element sizes.</returns>
@@ -145,7 +149,7 @@ namespace InteractiveDataDisplay.WPF
         public static readonly DependencyProperty IsReversedProperty =
             DependencyProperty.Register("IsReversed", typeof(bool), typeof(PlotAxis), new PropertyMetadata(false));
 
-        /// <summary>Gets or sets transform from user data to horizontal plot coordinate. 
+        /// <summary>Gets or sets transform from user data to horizontal plot coordinate.
         /// By default transform is <see cref="IdentityDataTransform"/>
         /// </summary>
         [Category("InteractiveDataDisplay")]
@@ -155,7 +159,7 @@ namespace InteractiveDataDisplay.WPF
             set { SetValue(XDataTransformProperty, value); }
         }
 
-        /// <summary>Gets or sets transform from user data to vertical plot coordinate. 
+        /// <summary>Gets or sets transform from user data to vertical plot coordinate.
         /// By default transform is <see cref="IdentityDataTransform"/>
         /// </summary>
         [Category("InteractiveDataDisplay")]

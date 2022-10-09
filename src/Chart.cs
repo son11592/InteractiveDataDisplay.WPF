@@ -17,6 +17,11 @@ namespace InteractiveDataDisplay.WPF
     [Description("Ready to use figure")]
     public class Chart : ContentControl
     {
+        public PlotAxis HPlotAxis
+        {
+            get => base.GetTemplateChild("PART_horizontalAxis") as PlotAxis;
+        }
+
         /// <summary>
         /// Initializes a new instance of <see cref="Chart"/> class.
         /// </summary>

@@ -11,7 +11,7 @@ namespace InteractiveDataDisplay.WPF
     /// <summary>
     /// Control for placing legend contents.
     /// </summary>
-    [Description("Control for legend contents")]    
+    [Description("Control for legend contents")]
     public class Legend : ContentControl
     {
         /// <summary>
@@ -82,7 +82,7 @@ namespace InteractiveDataDisplay.WPF
         }
 
         /// <summary>
-        /// Returns value of <see cref="IsVisibleProperty"/> attached property that controls 
+        /// Returns value of <see cref="IsVisibleProperty"/> attached property that controls
         /// if object is visible in legend. Default value is true.
         /// </summary>
         /// <param name="obj">An object with a legend.</param>
@@ -96,7 +96,7 @@ namespace InteractiveDataDisplay.WPF
         }
 
         /// <summary>
-        /// Sets <see cref="IsVisibleProperty"/> attached property. Objects with false value 
+        /// Sets <see cref="IsVisibleProperty"/> attached property. Objects with false value
         /// of this property are not shown in legend.</summary>
         /// <param name="obj">An object to be presented in a legend.</param>
         /// <param name="isVisible">Legend visibility flag</param>
@@ -110,7 +110,7 @@ namespace InteractiveDataDisplay.WPF
         /// Identifies attached property to get or set visibility of a legend.
         /// </summary>
         public static readonly DependencyProperty IsVisibleProperty =
-            DependencyProperty.RegisterAttached("IsVisible", typeof(bool), typeof(Legend), new PropertyMetadata(true));        
+            DependencyProperty.RegisterAttached("IsVisible", typeof(bool), typeof(Legend), new PropertyMetadata(true));
     }
 }
 

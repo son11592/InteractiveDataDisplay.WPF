@@ -49,7 +49,7 @@ namespace InteractiveDataDisplay.WPF
         }
 
         /// <summary>
-        /// Gets or sets the maximum value of displaying height. 
+        /// Gets or sets the maximum value of displaying height.
         /// Default value is 20.
         /// </summary>
         [Category("InteractiveDataDisplay")]
@@ -172,7 +172,7 @@ namespace InteractiveDataDisplay.WPF
 
             Content = stackPanel;
 
-            SizeChanged += (o, e) => 
+            SizeChanged += (o, e) =>
             {
                 if (e.PreviousSize.Width == 0 || e.PreviousSize.Height == 0 || Double.IsNaN(e.PreviousSize.Width) || Double.IsNaN(e.PreviousSize.Height))
                     UpdateCanvas();
@@ -194,7 +194,7 @@ namespace InteractiveDataDisplay.WPF
 
             double maxHeight = Double.IsNaN(Max) ? Range.Max : Max;
             double minHeight = Double.IsNaN(Min) ? Range.Min : Min;
-            
+
             double visHeight = Math.Min(maxHeight, MaxHeight);
 
             image.Width = Width;

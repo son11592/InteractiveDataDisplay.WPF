@@ -12,11 +12,11 @@
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot" Background="White">
-        <d3:Chart Name="plotter" IsXAxisReversed="True">
+        <d3:Chart Name="plotter" IsXAxisReversed="False" Margin="0 0 0 50">
             <d3:Chart.Title>
                 <TextBlock HorizontalAlignment="Center" FontSize="18" Margin="0,5,0,5">Line graph legend sample</TextBlock>
             </d3:Chart.Title>
-            <d3:Chart.LegendContent>
+            <!--<d3:Chart.LegendContent>
                 <d3:LegendItemsPanel>
                     <d3:LegendItemsPanel.Resources>
                         <DataTemplate x:Key="InteractiveDataDisplay.WPF.LineGraph">
@@ -28,8 +28,12 @@
                         </DataTemplate>
                     </d3:LegendItemsPanel.Resources>
                 </d3:LegendItemsPanel>
-            </d3:Chart.LegendContent>
-            <Grid Name="lines"/>
+            </d3:Chart.LegendContent>-->
+            <Grid Name="lines">
+                <d3:BarGraph x:Name="bg" Color="Green"/>
+                <d3:BarGraph x:Name="bg2" Color="Purple"/>
+                <!--<d3:LineGraph x:Name="lg"/>-->
+            </Grid>
         </d3:Chart>
     </Grid>
 </Window>

@@ -1,14 +1,14 @@
 <!-- Copyright © Microsoft Corporation, All Rights Reserved.
  -->
 <ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d3="clr-namespace:InteractiveDataDisplay.WPF">
-    
+
     <d3:NullToDefaultConverter x:Key="NullToDefaultConverter"/>
-    
+
     <d3:DoubleToTrianglePointsConverter x:Key="DoubleToTrianglePointsConverter"/>
-    
+
     <d3:ValueScaleConverter x:Key="ValueScaleConverter"/>
     <d3:PaletteConverter x:Key="ColorConverter"/>
     <d3:TranslateConverter x:Key="TranslateConverter"/>
@@ -40,7 +40,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock HorizontalAlignment="Right" 
+            <TextBlock HorizontalAlignment="Right"
                            Text="{Binding Series.X.Description, StringFormat='\{0\}:', FallbackValue='X:', Converter={StaticResource NullToDefaultConverter}, ConverterParameter='X'}"/>
             <TextBlock HorizontalAlignment="Right" Grid.Row="1"
                            Text="{Binding Series.Y.Description, StringFormat='\{0\}:', FallbackValue='Y:', Converter={StaticResource NullToDefaultConverter}, ConverterParameter='Y'}"/>
@@ -53,16 +53,16 @@
 
     <!--Box markers template-->
     <DataTemplate x:Key="Box">
-        <Rectangle  d3:Plot.X1="{Binding X}" 
-                    d3:Plot.Y1="{Binding Y, FallbackValue=0, TargetNullValue=0}" 
+        <Rectangle  d3:Plot.X1="{Binding X}"
+                    d3:Plot.Y1="{Binding Y, FallbackValue=0, TargetNullValue=0}"
                     Fill="{Binding C, FallbackValue=Black, TargetNullValue=Black}"
-                    Width="{Binding D, FallbackValue=10, TargetNullValue=10}" 
+                    Width="{Binding D, FallbackValue=10, TargetNullValue=10}"
                     Height="{Binding D, FallbackValue=10, TargetNullValue=10}"
-                    Stroke="{Binding Stroke, FallbackValue=Black}" 
+                    Stroke="{Binding Stroke, FallbackValue=Black}"
                     StrokeThickness="{Binding StrokeThickness, FallbackValue=1}">
             <Rectangle.RenderTransform>
                 <TranslateTransform X="{Binding D, Converter={StaticResource ValueScaleConverter}, ConverterParameter=-0.5,
-                                            FallbackValue=-5, TargetNullValue=-5}" 
+                                            FallbackValue=-5, TargetNullValue=-5}"
                                         Y="{Binding D, Converter={StaticResource ValueScaleConverter}, ConverterParameter=-0.5,
                                             FallbackValue=-5, TargetNullValue=-5}" />
             </Rectangle.RenderTransform>
@@ -73,7 +73,7 @@
     <DataTemplate x:Key="BoxLegend">
         <StackPanel Orientation="Horizontal">
             <Rectangle Fill="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}"
-                           Width="{Binding D.First, FallbackValue=10, TargetNullValue=10}" 
+                           Width="{Binding D.First, FallbackValue=10, TargetNullValue=10}"
                            Height="{Binding D.First, FallbackValue=10, TargetNullValue=10}"/>
             <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="{Binding Y.Description, FallbackValue='(No Y data series found)'}"/>
         </StackPanel>
@@ -98,7 +98,7 @@
     <DataTemplate x:Key="BoxSizeLegend">
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
-                <Rectangle Stroke="Black" Fill="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}" 
+                <Rectangle Stroke="Black" Fill="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}"
                                Width="15" Height="15" Grid.Column="0"/>
                 <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="{Binding Y.Description, FallbackValue='(No Y data series found)'}"/>
             </StackPanel>
@@ -134,16 +134,16 @@
 
     <!-- Circle markers template -->
     <DataTemplate x:Key="Circle">
-        <Ellipse d3:Plot.X1="{Binding X}" 
-                 d3:Plot.Y1="{Binding Y}" 
+        <Ellipse d3:Plot.X1="{Binding X}"
+                 d3:Plot.Y1="{Binding Y}"
                  Fill="{Binding C, FallbackValue=Black, TargetNullValue=Black}"
-                 Width="{Binding D, FallbackValue=10, TargetNullValue=10}" 
+                 Width="{Binding D, FallbackValue=10, TargetNullValue=10}"
                  Height="{Binding D, FallbackValue=10, TargetNullValue=10}"
-                 Stroke="{Binding Stroke, FallbackValue=Black}" 
+                 Stroke="{Binding Stroke, FallbackValue=Black}"
                  StrokeThickness="{Binding StrokeThickness, FallbackValue=1}">
             <Ellipse.RenderTransform>
                 <TranslateTransform X="{Binding D, Converter={StaticResource ValueScaleConverter}, ConverterParameter=-0.5,
-                                            FallbackValue=-5, TargetNullValue=-5}" 
+                                            FallbackValue=-5, TargetNullValue=-5}"
                                     Y="{Binding D, Converter={StaticResource ValueScaleConverter}, ConverterParameter=-0.5,
                                             FallbackValue=-5, TargetNullValue=-5}" />
             </Ellipse.RenderTransform>
@@ -154,7 +154,7 @@
     <DataTemplate x:Key="CircleLegend">
         <StackPanel Orientation="Horizontal">
             <Ellipse Fill="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}"
-                         Width="{Binding D.First, FallbackValue=10, TargetNullValue=10}" 
+                         Width="{Binding D.First, FallbackValue=10, TargetNullValue=10}"
                          Height="{Binding D.First, FallbackValue=10, TargetNullValue=10}"/>
             <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="{Binding Y.Description, FallbackValue='(No Y data series found)'}"/>
         </StackPanel>
@@ -178,7 +178,7 @@
     <DataTemplate x:Key="CircleSizeLegend">
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
-                <Ellipse Stroke="Black" Fill="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}" 
+                <Ellipse Stroke="Black" Fill="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}"
                              Width="15" Height="15" Grid.Column="0"/>
                 <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="{Binding Y.Description, FallbackValue='(No Y data series found)'}"/>
             </StackPanel>
@@ -211,17 +211,17 @@
 
     <!-- Diamond markers template -->
     <DataTemplate x:Key="Diamond">
-        <Rectangle d3:Plot.X1="{Binding X}" 
-                    d3:Plot.Y1="{Binding Y}" 
+        <Rectangle d3:Plot.X1="{Binding X}"
+                    d3:Plot.Y1="{Binding Y}"
                     Fill="{Binding C, FallbackValue=Black, TargetNullValue=Black}"
                     Width="{Binding D, FallbackValue=10, TargetNullValue=10}"
                     Height="{Binding D, FallbackValue=10, TargetNullValue=10}"
-                   Stroke="{Binding Stroke, FallbackValue=Black}" 
+                   Stroke="{Binding Stroke, FallbackValue=Black}"
                    StrokeThickness="{Binding StrokeThickness, FallbackValue=1}">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <TranslateTransform X="{Binding D, Converter={StaticResource ValueScaleConverter}, ConverterParameter=-0.5,
-                                            FallbackValue=-5, TargetNullValue=-5}" 
+                                            FallbackValue=-5, TargetNullValue=-5}"
                                             Y="{Binding D, Converter={StaticResource ValueScaleConverter}, ConverterParameter=-0.5,
                                             FallbackValue=-5, TargetNullValue=-5}" />
                     <RotateTransform Angle="45"/>
@@ -233,9 +233,9 @@
     <!-- Simple legend template for diamond markers -->
     <DataTemplate x:Key="DiamondLegend">
         <StackPanel Orientation="Horizontal">
-            <ContentControl Width="{Binding D.First, Converter={StaticResource ValueScaleConverter}, ConverterParameter=1.5, 
+            <ContentControl Width="{Binding D.First, Converter={StaticResource ValueScaleConverter}, ConverterParameter=1.5,
                                         FallbackValue=15, TargetNullValue=15}"
-                                Height="{Binding D.First, Converter={StaticResource ValueScaleConverter}, ConverterParameter=1.5, 
+                                Height="{Binding D.First, Converter={StaticResource ValueScaleConverter}, ConverterParameter=1.5,
                                         FallbackValue=15, TargetNullValue=15}" IsTabStop="False">
                 <Rectangle Fill="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}"
                                Width="1" Height="1">
@@ -243,7 +243,7 @@
                         <TransformGroup>
                             <RotateTransform Angle="45"/>
                             <TranslateTransform X="0.7"/>
-                            <ScaleTransform ScaleX="{Binding D.First, FallbackValue=10, TargetNullValue=10}" 
+                            <ScaleTransform ScaleX="{Binding D.First, FallbackValue=10, TargetNullValue=10}"
                                                 ScaleY="{Binding D.First, FallbackValue=10, TargetNullValue=10}"/>
                         </TransformGroup>
                     </Rectangle.RenderTransform>
@@ -277,7 +277,7 @@
     <DataTemplate x:Key="DiamondSizeLegend">
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
-                <Rectangle Stroke="Black" Fill="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}" 
+                <Rectangle Stroke="Black" Fill="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}"
                                Width="12" Height="12">
                     <Rectangle.RenderTransform>
                         <TransformGroup>
@@ -322,8 +322,8 @@
 
     <!-- Triangle markers template -->
     <DataTemplate x:Key="Triangle">
-        <Polygon d3:Plot.X1="{Binding X}" 
-                 d3:Plot.Y1="{Binding Y}" 
+        <Polygon d3:Plot.X1="{Binding X}"
+                 d3:Plot.Y1="{Binding Y}"
                  Fill="{Binding C, FallbackValue=Black, TargetNullValue=Black}"
                  Points="{Binding D, Converter={StaticResource DoubleToTrianglePointsConverter}}"
                  Stroke="{Binding Stroke}" StrokeThickness="{Binding StrokeThickness}"/>
@@ -337,7 +337,7 @@
                 <Polygon Fill="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}"
                              Points="0 1, 0.5 0, 1 1">
                     <Polygon.RenderTransform>
-                        <ScaleTransform ScaleX="{Binding D.First, FallbackValue=10, TargetNullValue=10}" 
+                        <ScaleTransform ScaleX="{Binding D.First, FallbackValue=10, TargetNullValue=10}"
                                             ScaleY="{Binding D.First, FallbackValue=10, TargetNullValue=10}"/>
                     </Polygon.RenderTransform>
                 </Polygon>
@@ -365,7 +365,7 @@
     <DataTemplate x:Key="TriangleSizeLegend">
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
-                <Polygon Stroke="Black" Points="0 15, 7.5 0, 15 15" 
+                <Polygon Stroke="Black" Points="0 15, 7.5 0, 15 15"
                              Fill="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}"/>
                 <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="{Binding Y.Description, FallbackValue='(No Y data series found)'}"/>
             </StackPanel>
@@ -401,7 +401,7 @@
         <StackPanel d3:Plot.X1="{Binding X}"
                     d3:Plot.Y1="{Binding Y}"
                         Orientation="Vertical">
-            <Line Stroke="{Binding C, FallbackValue=Black, TargetNullValue=Black}" StrokeThickness="1" 
+            <Line Stroke="{Binding C, FallbackValue=Black, TargetNullValue=Black}" StrokeThickness="1"
                           X1="0" X2="{Binding D, FallbackValue=10, TargetNullValue=10}" Y1="0" Y2="0">
                 <Line.RenderTransform>
                     <TranslateTransform X="{Binding D, Converter={StaticResource TranslateConverter}, ConverterParameter='0',
@@ -422,7 +422,7 @@
     <DataTemplate x:Key="CrossLegend">
         <StackPanel Orientation="Horizontal">
             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                <Line Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}" StrokeThickness="1" 
+                <Line Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}" StrokeThickness="1"
                           X1="0" X2="{Binding D.First, FallbackValue=12, TargetNullValue=12}" Y1="0" Y2="0">
                     <Line.RenderTransform>
                         <TranslateTransform Y="{Binding D.First, Converter={StaticResource ValueScaleConverter}, ConverterParameter='0.5',
@@ -432,7 +432,7 @@
                 <Line Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}" StrokeThickness="1"
                       X1="0" X2="0" Y1="0" Y2="{Binding D.First, FallbackValue=12, TargetNullValue=12}">
                     <Line.RenderTransform>
-                        <TranslateTransform X="{Binding D.First, Converter={StaticResource ValueScaleConverter}, ConverterParameter='0.5', 
+                        <TranslateTransform X="{Binding D.First, Converter={StaticResource ValueScaleConverter}, ConverterParameter='0.5',
                                                 FallbackValue=6, TargetNullValue=6}"/>
                     </Line.RenderTransform>
                 </Line>
@@ -546,11 +546,11 @@
     <DataTemplate x:Key="ErrorBarLegend">
         <StackPanel Orientation="Horizontal">
             <StackPanel Orientation="Vertical">
-                <Line Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}" 
+                <Line Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}"
                           StrokeThickness="1" X1="0" X2="10" Y1="0" Y2="0"/>
-                <Line X1="5" X2="5" Y1="0" Y2="15" Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}" 
+                <Line X1="5" X2="5" Y1="0" Y2="15" Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}"
                           StrokeThickness="1"/>
-                <Line Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}" StrokeThickness="1" 
+                <Line Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}" StrokeThickness="1"
                           X1="0" X2="10" Y1="0" Y2="0"/>
             </StackPanel>
             <TextBlock Text="{Binding H.Description, FallbackValue='(No H data series found)'}"/>
@@ -565,7 +565,7 @@
               d3:Plot.Y2="{Binding This, Converter={StaticResource VerticalIntervalBottomConverter}}">
             <Grid.Resources>
                 <d3:VerticalIntervalDataBoundsConverter x:Key="DataBoundsFunc"/>
-                <!--Same converter as ErrorBar has--> 
+                <!--Same converter as ErrorBar has-->
                 <d3:ErrorBarScreenThicknessConverter x:Key="ScreenBoundsFunc"/>
             </Grid.Resources>
             <Rectangle Fill="{Binding C}" HorizontalAlignment="Stretch" Height="{Binding StrokeThickness}" VerticalAlignment="Top"/>
@@ -581,11 +581,11 @@
     <DataTemplate x:Key="VerticalIntervalLegend">
         <StackPanel Orientation="Horizontal">
             <StackPanel Orientation="Vertical">
-                <Line Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}" 
+                <Line Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}"
                           StrokeThickness="1" X1="0" X2="10" Y1="0" Y2="0"/>
-                <Line X1="5" X2="5" Y1="0" Y2="15" Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}" 
+                <Line X1="5" X2="5" Y1="0" Y2="15" Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}"
                           StrokeThickness="1"/>
-                <Line Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}" StrokeThickness="1" 
+                <Line Stroke="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}" StrokeThickness="1"
                           X1="0" X2="10" Y1="0" Y2="0"/>
             </StackPanel>
             <TextBlock Text="{Binding Y1.Description}"/>
@@ -603,7 +603,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock HorizontalAlignment="Right" 
+            <TextBlock HorizontalAlignment="Right"
                            Text="{Binding Series.X.Description, StringFormat='\{0\}:', FallbackValue='X:', Converter={StaticResource NullToDefaultConverter}, ConverterParameter='X'}"/>
             <TextBlock HorizontalAlignment="Right" Grid.Row="1"
                            Text="{Binding Series.Y1.Description, StringFormat='\{0\}:', FallbackValue='Y1:', Converter={StaticResource NullToDefaultConverter}, ConverterParameter='Y1'}"/>
@@ -616,18 +616,18 @@
                         Text="{Binding Path=This, StringFormat='[\{0\},', Converter={StaticResource VerticalIntervalTopConverter}}"/>
                 <TextBlock Grid.Row="2" Grid.Column="1"
                         Text="{Binding Path=This, StringFormat='\{0\}]', Converter={StaticResource VerticalIntervalBottomConverter}}"/>
-            </StackPanel>                
+            </StackPanel>
         </Grid>
     </DataTemplate>
 
     <!-- Bar graph template-->
     <DataTemplate x:Key="BarGraph">
-        <Rectangle d3:Plot.X1="{Binding This, Converter={StaticResource BarGraphLeftConverter}}" 
+        <Rectangle d3:Plot.X1="{Binding This, Converter={StaticResource BarGraphLeftConverter}}"
                    d3:Plot.Y1="{Binding Y, Converter={StaticResource BarGraphTopConverter}, FallbackValue=0, TargetNullValue=0}"
-                   d3:Plot.Y2="{Binding Y, Converter={StaticResource BarGraphBottomConverter}, FallbackValue=10, TargetNullValue=10}" 
+                   d3:Plot.Y2="{Binding Y, Converter={StaticResource BarGraphBottomConverter}, FallbackValue=10, TargetNullValue=10}"
                    d3:Plot.X2="{Binding This, Converter={StaticResource BarGraphRightConverter}, FallbackValue=10, TargetNullValue=10}"
-                   Fill="{Binding C, FallbackValue=Black, TargetNullValue=Black}" 
-                   Stroke="{Binding Stroke, FallbackValue=Black}" 
+                   Fill="{Binding C, FallbackValue=Black, TargetNullValue=Black}"
+                   Stroke="{Binding Stroke, FallbackValue=Black}"
                    StrokeThickness="{Binding StrokeThickness, FallbackValue=1}">
             <Rectangle.Resources>
                 <d3:BarGraphDataBoundsConverter x:Key="DataBoundsFunc"/>
@@ -639,7 +639,7 @@
     <DataTemplate x:Key="BarGraphLegend">
         <StackPanel Orientation="Horizontal">
             <Rectangle Fill="{Binding C.First, FallbackValue=Black, TargetNullValue=Black}"
-                           Width="5" Height="20" Stroke="Black" StrokeThickness="1"/>
+                           Width="16" Height="16" Stroke="Black" StrokeThickness="1"/>
             <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="{Binding Y.Description, FallbackValue='(No Y data series found)'}"/>
         </StackPanel>
     </DataTemplate>
@@ -655,14 +655,14 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock HorizontalAlignment="Right" 
+            <TextBlock HorizontalAlignment="Right"
                            Text="{Binding Series.X.Description, StringFormat='\{0\}:', FallbackValue='X:', Converter={StaticResource NullToDefaultConverter}, ConverterParameter='X'}"/>
             <TextBlock HorizontalAlignment="Right" Grid.Row="1"
                            Text="{Binding Series.Y.Description, StringFormat='\{0\}:', FallbackValue='Y:', Converter={StaticResource NullToDefaultConverter}, ConverterParameter='Y'}"/>
             <TextBlock Grid.Column="1" Margin="5,0,0,0"
                     Text="{Binding Path=X, FallbackValue='(No X data series found)'}"/>
             <TextBlock Grid.Row="1" Margin="5,0,0,0" Grid.Column="1"
-                    Text="{Binding Path=Y, 
+                    Text="{Binding Path=Y,
                     FallbackValue='(No Y data series found)', TargetNullValue='(No Y data series found)'}"/>
         </Grid>
     </DataTemplate>
@@ -679,7 +679,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock HorizontalAlignment="Right" 
+            <TextBlock HorizontalAlignment="Right"
                            Text="{Binding Series.X.Description, StringFormat='\{0\}:', FallbackValue='X:', Converter={StaticResource NullToDefaultConverter}, ConverterParameter='X'}"/>
             <TextBlock HorizontalAlignment="Right" Grid.Row="1"
                            Text="{Binding Series.Y.Description, StringFormat='\{0\}:', FallbackValue='Y:', Converter={StaticResource NullToDefaultConverter}, ConverterParameter='Y'}"/>
@@ -706,7 +706,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock HorizontalAlignment="Right" 
+            <TextBlock HorizontalAlignment="Right"
                            Text="{Binding Series.X.Description, StringFormat='\{0\}:', FallbackValue='X:', Converter={StaticResource NullToDefaultConverter}, ConverterParameter='X'}"/>
             <TextBlock HorizontalAlignment="Right" Grid.Row="1"
                            Text="{Binding Series.Y.Description, StringFormat='\{0\}:', FallbackValue='Y:', Converter={StaticResource NullToDefaultConverter}, ConverterParameter='Y'}"/>
@@ -734,7 +734,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock HorizontalAlignment="Right" 
+            <TextBlock HorizontalAlignment="Right"
                            Text="{Binding Series.X.Description, StringFormat='\{0\}:', FallbackValue='X:', Converter={StaticResource NullToDefaultConverter}, ConverterParameter='X'}"/>
             <TextBlock HorizontalAlignment="Right" Grid.Row="1"
                            Text="{Binding Series.Y.Description, StringFormat='\{0\}:', FallbackValue='Y:', Converter={StaticResource NullToDefaultConverter}, ConverterParameter='Y'}"/>

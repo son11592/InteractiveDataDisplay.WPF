@@ -24,7 +24,7 @@ namespace BarChartSample
             for (int i = 0; i < N; i++)
             {
                 k = r.NextDouble();
-                y[i] = k < 0.5 ? r.Next(100) : -r.Next(100);
+                y[i] = r.Next(100);
             }
             barChart.PlotBars(y);
         }

@@ -31,7 +31,7 @@ namespace InteractiveDataDisplay.WPF
             get { return (PointCollection)GetValue(PointsProperty); }
             set { SetValue(PointsProperty, value); }
         }
-        
+
         private static void PointsPropertyChangedHandler(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             LineGraph linePlot = (LineGraph)d;
@@ -46,10 +46,10 @@ namespace InteractiveDataDisplay.WPF
         /// </summary>
         public LineGraph()
         {
-            polyline = new Polyline 
-            { 
+            polyline = new Polyline
+            {
                 Stroke = new SolidColorBrush(Colors.Black),
-                StrokeLineJoin = PenLineJoin.Round
+                StrokeLineJoin = PenLineJoin.Miter
             };
 
             BindingOperations.SetBinding(polyline, Polyline.StrokeThicknessProperty, new Binding("StrokeThickness") { Source = this });
@@ -82,7 +82,7 @@ namespace InteractiveDataDisplay.WPF
                 var nx = enx.MoveNext();
                 var ny = eny.MoveNext();
                 if (nx && ny)
-                    points.Add(new Point(Convert.ToDouble(enx.Current, CultureInfo.InvariantCulture), 
+                    points.Add(new Point(Convert.ToDouble(enx.Current, CultureInfo.InvariantCulture),
                         Convert.ToDouble(eny.Current, CultureInfo.InvariantCulture)));
                 else if (!nx && !ny)
                     break;

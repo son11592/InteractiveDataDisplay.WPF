@@ -17,6 +17,12 @@ namespace InteractiveDataDisplay.WPF
     [Description("Vertical or horizontal coordinate axis")]
     public class Axis : Panel
     {
+        public ILabelProvider LabelProvider
+        {
+            get => labelProvider;
+            set => labelProvider = value;
+        }
+
         private ILabelProvider labelProvider;
         private TicksProvider ticksProvider;
         private Path majorTicksPath;
@@ -469,7 +475,7 @@ namespace InteractiveDataDisplay.WPF
         }
 
         /// <summary>
-        /// Measures the size in layout required for child elements and determines a size for the Figure. 
+        /// Measures the size in layout required for child elements and determines a size for the Figure.
         /// </summary>
         /// <param name="availableSize">The available size that this element can give to child elements. Infinity can be specified as a value to indicate that the element will size to whatever content is available.</param>
         /// <returns>The size that this element determines it needs during layout, based on its calculations of child element sizes.</returns>

@@ -67,7 +67,7 @@ namespace InteractiveDataDisplay.WPF
     /// A particular case of <see cref="CartesianSizeColorMarkerGraph"/> with cross markers.
     /// </summary>
     [Description("Cross markers graph")]
-    public class CrossMarkerGraph : CartesianSizeColorMarkerGraph    
+    public class CrossMarkerGraph : CartesianSizeColorMarkerGraph
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CrossMarkerGraph"/> class.
@@ -78,9 +78,9 @@ namespace InteractiveDataDisplay.WPF
         }
     }
     /// <summary>
-    /// Displays error bar marker graph as a particular case of <see cref="CartesianMarkerGraph"/>. 
-    /// Has a set of additional data series: <see cref="ColorSeries"/> (key 'C') and <see cref="DataSeries"/> (keys 'W' and 'H') to define width 
-    /// (in screen coordinates) and height (in plot coordinates) of each marker. 
+    /// Displays error bar marker graph as a particular case of <see cref="CartesianMarkerGraph"/>.
+    /// Has a set of additional data series: <see cref="ColorSeries"/> (key 'C') and <see cref="DataSeries"/> (keys 'W' and 'H') to define width
+    /// (in screen coordinates) and height (in plot coordinates) of each marker.
     /// </summary>
     [Description("Marker graph showing verical intervals (center, error)")]
     public class ErrorBarGraph : CartesianMarkerGraph
@@ -102,29 +102,29 @@ namespace InteractiveDataDisplay.WPF
                 Data = 5
             });
             Sources.Add(new ColorSeries());
-                        
+
             MarkerTemplate = ErrorBar;
             LegendTemplate = ErrorBarLegend;
             TooltipTemplate = DefaultTooltipTemplate;
 
             Description = "Observation error";
-        }       
+        }
         /// <summary>
         /// Updates data in data series and starts redrawing marker graph. This method returns before
         /// marker graph is redrawn. This method is thread safe.
-        /// <para>This version does not need specification of X <see cref="DataSeries"/>. 
+        /// <para>This version does not need specification of X <see cref="DataSeries"/>.
         /// Default value is a sequence of integers starting with zero.</para>
         /// </summary>
         /// <param name="y">
-        /// Data for Y <see cref="DataSeries"/> defining y coordinates of the center of each bar. 
-        /// <para>Can be a single value (to draw one marker or markers with the same y coordinates) 
-        /// or an array or IEnumerable (to draw markers with different y coordinates) of any numeric type. 
+        /// Data for Y <see cref="DataSeries"/> defining y coordinates of the center of each bar.
+        /// <para>Can be a single value (to draw one marker or markers with the same y coordinates)
+        /// or an array or IEnumerable (to draw markers with different y coordinates) of any numeric type.
         /// Can be null then no markers will be drawn.</para>
         /// </param>
         /// <param name="error">
-        /// Data for <see cref="DataSeries"/> of observation error or the height of each bar. 
-        /// <para>Can be a single value (to draw markers of one height) 
-        /// or an array or IEnumerable (to draw markers of different heights) of any numeric type. 
+        /// Data for <see cref="DataSeries"/> of observation error or the height of each bar.
+        /// <para>Can be a single value (to draw markers of one height)
+        /// or an array or IEnumerable (to draw markers of different heights) of any numeric type.
         /// Should be defined in plot coordinates. Can be null then no markers will be drawn.</para>
         /// </param>
         /// <remarks>
@@ -142,19 +142,19 @@ namespace InteractiveDataDisplay.WPF
         /// marker graph is redrawn. This method is thread safe.
         /// </summary>
         /// <param name="x">
-        /// Data for X <see cref="DataSeries"/> defining x coordinates of the center of each bar. 
-        /// <para>Can be a single value (to draw one marker or markers with the same x coordinates) 
-        /// or an array or IEnumerable (to draw markers with different x coordinates) of any numeric type. 
+        /// Data for X <see cref="DataSeries"/> defining x coordinates of the center of each bar.
+        /// <para>Can be a single value (to draw one marker or markers with the same x coordinates)
+        /// or an array or IEnumerable (to draw markers with different x coordinates) of any numeric type.
         /// Can be null then x coordinates will be a sequence of integers starting with zero.</para>
         /// </param>
         /// <param name="y">
-        /// Data for Y <see cref="DataSeries"/> defining y coordinates of the center of each bar. 
-        /// <para>Can be a single value (to draw one marker or markers with the same y coordinates) 
-        /// or an array or IEnumerable (to draw markers with different y coordinates) of any numeric type. 
+        /// Data for Y <see cref="DataSeries"/> defining y coordinates of the center of each bar.
+        /// <para>Can be a single value (to draw one marker or markers with the same y coordinates)
+        /// or an array or IEnumerable (to draw markers with different y coordinates) of any numeric type.
         /// Can be null then no markers will be drawn.</para>
         /// </param>
         /// <param name="error">
-        /// Data for <see cref="DataSeries"/> of observation error or the height of each bar. 
+        /// Data for <see cref="DataSeries"/> of observation error or the height of each bar.
         /// <para>Can be a single value (to draw markers of one height) or an array or IEnumerable (to draw markers of different heights) of
         /// any numeric type. Should be defined in plot coordinates. Can be null then no markers will be drawn.</para>
         /// </param>
@@ -258,7 +258,7 @@ namespace InteractiveDataDisplay.WPF
             new PropertyMetadata(null, OnErrorDescriptionChanged));
 
         /// <summary>
-        /// Gets or sets the description for <see cref="DataSeries"/> of the height of bars. 
+        /// Gets or sets the description for <see cref="DataSeries"/> of the height of bars.
         /// Is frequently used in legend and tooltip.
         /// <para>Default value is null.</para>
         /// </summary>
@@ -279,10 +279,10 @@ namespace InteractiveDataDisplay.WPF
         #endregion
     }
     /// <summary>
-    /// Displays bar chart graph as a particular case of marker graph. Has a set of data series: 
+    /// Displays bar chart graph as a particular case of marker graph. Has a set of data series:
     /// X <see cref="DataSeries"/> defining x coordinates of the center of each bar,
     /// Y <see cref="DataSeries"/> defining the value for each bar,
-    /// <see cref="ColorSeries"/> (key 'C') and <see cref="DataSeries"/> (key 'W') to set width of each bar. 
+    /// <see cref="ColorSeries"/> (key 'C') and <see cref="DataSeries"/> (key 'W') to set width of each bar.
     /// </summary>
     [Description("Represents a bar chart")]
     public class BarGraph : MarkerGraph
@@ -309,8 +309,8 @@ namespace InteractiveDataDisplay.WPF
                 Data = 1.0
             });
             Sources.Add(new ColorSeries());
-            Sources["C"].Data = "Blue";    
-        
+            Sources["C"].Data = "Blue";
+
             LegendTemplate = BarGraphLegend;
             TooltipTemplate = BarGraphTooltip;
             MarkerTemplate = BarGraph;
@@ -324,20 +324,20 @@ namespace InteractiveDataDisplay.WPF
         /// <para>Color and width of markers are getting from <see cref="Color"/> and <see cref="BarsWidth"/> dependency properties.</para>
         /// </summary>
         /// <param name="x">
-        /// Data for X <see cref="DataSeries"/> defining x coordinates of the center of each bar. 
-        /// <para>Can be a single value (to draw one marker or markers with the same x coordinates) 
-        /// or an array or IEnumerable (to draw markers with different x coordinates) of any numeric type. 
+        /// Data for X <see cref="DataSeries"/> defining x coordinates of the center of each bar.
+        /// <para>Can be a single value (to draw one marker or markers with the same x coordinates)
+        /// or an array or IEnumerable (to draw markers with different x coordinates) of any numeric type.
         /// Can be null then x coordinates will be a sequence of integers starting with zero.</para>
         /// </param>
         /// <param name="y">
-        /// Data for Y <see cref="DataSeries"/> defining the value of each bar. 
-        /// <para>Can be a single value (to draw one marker or markers with the same y values) 
-        /// or an array or IEnumerable (to draw markers with different y values) of any numeric type. 
+        /// Data for Y <see cref="DataSeries"/> defining the value of each bar.
+        /// <para>Can be a single value (to draw one marker or markers with the same y values)
+        /// or an array or IEnumerable (to draw markers with different y values) of any numeric type.
         /// Can be null then no markers will be drawn.</para>
         /// </param>
         /// <remarks>
-        /// Note that all vector data for <see cref="DataSeries"/> should be of the same length. 
-        /// Otherwise no markers will be drawn. 
+        /// Note that all vector data for <see cref="DataSeries"/> should be of the same length.
+        /// Otherwise no markers will be drawn.
         /// </remarks>
         /// <returns>ID of rendering task. You can subscribe to notification about rendering completion events
         /// as observer of RenderCompletion.
@@ -353,9 +353,9 @@ namespace InteractiveDataDisplay.WPF
         /// <para>Color and width of markers are getting from <see cref="Color"/> and <see cref="BarsWidth"/> dependency properties.</para>
         /// </summary>
         /// <param name="y">
-        /// Data for Y <see cref="DataSeries"/> defining the value of each bar. 
-        /// <para>Can be a single value (to draw one marker or markers with the same y values) 
-        /// or an array or IEnumerable (to draw markers with different y values) of any numeric type. 
+        /// Data for Y <see cref="DataSeries"/> defining the value of each bar.
+        /// <para>Can be a single value (to draw one marker or markers with the same y values)
+        /// or an array or IEnumerable (to draw markers with different y values) of any numeric type.
         /// Can be null then no markers will be drawn.</para>
         /// </param>
         /// <returns>ID of rendering task. You can subscribe to notification about rendering completion events
@@ -374,8 +374,8 @@ namespace InteractiveDataDisplay.WPF
 
         /// <summary>
         /// Gets or sets the data of X <see cref="DataSeries"/> defining x coordinates of the center of bars.
-        /// <para>Can be a single value (to draw one marker or markers with the same x coordinates) 
-        /// or an array or IEnumerable (to draw a set of different markers) of any numeric type. 
+        /// <para>Can be a single value (to draw one marker or markers with the same x coordinates)
+        /// or an array or IEnumerable (to draw a set of different markers) of any numeric type.
         /// Can be null then x coordinates will be a sequence of integers starting with zero.</para>
         /// <para>Default value is null.</para>
         /// </summary>
@@ -402,8 +402,8 @@ namespace InteractiveDataDisplay.WPF
 
         /// <summary>
         /// Gets or sets the data for Y <see cref="DataSeries"/> defining the value of bars.
-        /// <para>Can be a single value (to draw one marker or markers with the same y values) 
-        /// or an array or IEnumerable (to draw markers with different y values) of any numeric type. 
+        /// <para>Can be a single value (to draw one marker or markers with the same y values)
+        /// or an array or IEnumerable (to draw markers with different y values) of any numeric type.
         /// Can be null then no markers will be drawn.</para>
         /// <para>Default value is null.</para>
         /// </summary>
@@ -414,7 +414,7 @@ namespace InteractiveDataDisplay.WPF
             get { return (object)GetValue(YProperty); }
             set { SetValue(YProperty, value); }
         }
-        
+
         private static void OnYChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             BarGraph mg = (BarGraph)d;
@@ -446,7 +446,7 @@ namespace InteractiveDataDisplay.WPF
             BarGraph mg = (BarGraph)d;
             mg.Sources["Y"].Description = (string)e.NewValue;
         }
-        #endregion    
+        #endregion
         #region BarsWidth
         /// <summary>
         /// Identifies the <see cref="BarsWidth"/> dependency property.
@@ -456,7 +456,7 @@ namespace InteractiveDataDisplay.WPF
 
         /// <summary>
         /// Gets or sets the data for <see cref="DataSeries"/> (key 'W') of width of bars in plot coordinates.
-        /// <para>Can be a single value (to draw markers of one width) or an array or IEnumerable 
+        /// <para>Can be a single value (to draw markers of one width) or an array or IEnumerable
         /// (to draw markers with different widths) of any numeric type.</para>
         /// <para>Default value is 1.</para>
         /// </summary>
@@ -544,24 +544,24 @@ namespace InteractiveDataDisplay.WPF
         /// <summary>
         /// Updates data in data series and starts redrawing marker graph. This method returns before
         /// marker graph is redrawn. This method is thread safe.
-        /// <para>This version does not need specification of X <see cref="DataSeries"/>. 
+        /// <para>This version does not need specification of X <see cref="DataSeries"/>.
         /// Default value is a sequence of integers starting with zero.</para>
         /// <para>Color and width of markers are getting from <see cref="Color"/> and <see cref="Size"/> dependency properties.</para>
         /// </summary>
         /// <param name="y1">
-        /// Data for <see cref="DataSeries"/> defining y coordinates of the bottom of each bar. 
-        /// <para>Can be a single value (to draw one marker or markers with the same bottom y coordinates) 
-        /// or an array or IEnumerable (to draw markers with different bottom y coordinates) of any numeric type. 
+        /// Data for <see cref="DataSeries"/> defining y coordinates of the bottom of each bar.
+        /// <para>Can be a single value (to draw one marker or markers with the same bottom y coordinates)
+        /// or an array or IEnumerable (to draw markers with different bottom y coordinates) of any numeric type.
         /// Can be null then no markers will be drawn.</para>
         /// </param>
         /// <param name="y2">
-        /// Data for <see cref="DataSeries"/> defining y coordinates of the top of each bar. 
-        /// <para>Can be a single value (to draw one marker or markers with the same top y coordinates) 
-        /// or an array or IEnumerable (to draw markers with different top y coordinates) of any numeric type. 
+        /// Data for <see cref="DataSeries"/> defining y coordinates of the top of each bar.
+        /// <para>Can be a single value (to draw one marker or markers with the same top y coordinates)
+        /// or an array or IEnumerable (to draw markers with different top y coordinates) of any numeric type.
         /// Can be null then no markers will be drawn.</para>
         /// </param>
         /// <remarks>
-        /// Note that all vector data for <see cref="DataSeries"/> should be of the same length. 
+        /// Note that all vector data for <see cref="DataSeries"/> should be of the same length.
         /// Otherwise no markers will be drawn.
         /// </remarks>
         /// <returns>ID of rendering task. You can subscribe to notification about rendering completion events
@@ -577,25 +577,25 @@ namespace InteractiveDataDisplay.WPF
         /// <para>Color and width of markers are getting from <see cref="Color"/> and <see cref="Size"/> dependency properties.</para>
         /// </summary>
         /// <param name="x">
-        /// Data for X <see cref="DataSeries"/> defining x coordinates of the center of each bar. 
-        /// <para>Can be a single value (to draw one marker or markers with the same x coordinates) 
-        /// or an array or IEnumerable (to draw markers with different x coordinates) of any numeric type. 
+        /// Data for X <see cref="DataSeries"/> defining x coordinates of the center of each bar.
+        /// <para>Can be a single value (to draw one marker or markers with the same x coordinates)
+        /// or an array or IEnumerable (to draw markers with different x coordinates) of any numeric type.
         /// Can be null then x coordinates will be a sequence of integers starting with zero.</para>
         /// </param>
         /// <param name="y1">
-        /// Data for <see cref="DataSeries"/> defining y coordinates of the bottom of each bar. 
-        /// <para>Can be a single value (to draw one marker or markers with the same bottom y coordinates) 
-        /// or an array or IEnumerable (to draw markers with different bottom y coordinates) of any numeric type. 
+        /// Data for <see cref="DataSeries"/> defining y coordinates of the bottom of each bar.
+        /// <para>Can be a single value (to draw one marker or markers with the same bottom y coordinates)
+        /// or an array or IEnumerable (to draw markers with different bottom y coordinates) of any numeric type.
         /// Can be null then no markers will be drawn.</para>
         /// </param>
         /// <param name="y2">
-        /// Data for <see cref="DataSeries"/> defining y coordinates of the top of each bar. 
-        /// <para>Can be a single value (to draw one marker or markers with the same top y coordinates) 
-        /// or an array or IEnumerable (to draw markers with different top y coordinates) of any numeric type. 
+        /// Data for <see cref="DataSeries"/> defining y coordinates of the top of each bar.
+        /// <para>Can be a single value (to draw one marker or markers with the same top y coordinates)
+        /// or an array or IEnumerable (to draw markers with different top y coordinates) of any numeric type.
         /// Can be null then no markers will be drawn.</para>
         /// </param>
         /// <remarks>
-        /// Note that all vector data for <see cref="DataSeries"/> should be of the same length. 
+        /// Note that all vector data for <see cref="DataSeries"/> should be of the same length.
         /// Otherwise no markers will be drawn.
         /// </remarks>
         /// <returns>ID of rendering task. You can subscribe to notification about rendering completion events
@@ -614,7 +614,7 @@ namespace InteractiveDataDisplay.WPF
 
         /// <summary>
         /// Gets or sets the data for width <see cref="DataSeries"/> (key 'W').
-        /// <para>Can be a single value (to draw markers of one width) 
+        /// <para>Can be a single value (to draw markers of one width)
         /// or an array or IEnumerable (to draw markers of different widths) of
         /// any numeric type. Can be null then no markers will be drawn.</para>
         /// <para>Default value is 5.</para>
@@ -666,9 +666,9 @@ namespace InteractiveDataDisplay.WPF
             "Y1", typeof(object), typeof(VerticalIntervalGraph), new PropertyMetadata(null, OnY1Changed));
 
         /// <summary>
-        /// Gets or sets the data for <see cref="DataSeries"/> (key 'Y1') defining y coordinates of the bottom of each bar. 
-        /// <para>Can be a single value (to draw one marker or markers with the same bottom y coordinates) 
-        /// or an array or IEnumerable (to draw markers with different bottom y coordinates) of any numeric type. 
+        /// Gets or sets the data for <see cref="DataSeries"/> (key 'Y1') defining y coordinates of the bottom of each bar.
+        /// <para>Can be a single value (to draw one marker or markers with the same bottom y coordinates)
+        /// or an array or IEnumerable (to draw markers with different bottom y coordinates) of any numeric type.
         /// Can be null then no markers will be drawn.</para>
         /// </summary>
         [Category("InteractiveDataDisplay")]
@@ -693,9 +693,9 @@ namespace InteractiveDataDisplay.WPF
             "Y2", typeof(object), typeof(VerticalIntervalGraph), new PropertyMetadata(null, OnY1Changed));
 
         /// <summary>
-        /// Gets or sets the data for <see cref="DataSeries"/> (key 'Y2') defining y coordinates of the top of each bar. 
-        /// <para>Can be a single value (to draw one marker or markers with the same top y coordinates) 
-        /// or an array or IEnumerable (to draw markers with different top y coordinates) of any numeric type. 
+        /// Gets or sets the data for <see cref="DataSeries"/> (key 'Y2') defining y coordinates of the top of each bar.
+        /// <para>Can be a single value (to draw one marker or markers with the same top y coordinates)
+        /// or an array or IEnumerable (to draw markers with different top y coordinates) of any numeric type.
         /// Can be null then no markers will be drawn.</para>
         /// </summary>
         [Category("InteractiveDataDisplay")]

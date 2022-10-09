@@ -9,7 +9,7 @@ using System.ComponentModel;
 namespace InteractiveDataDisplay.WPF
 {
     /// <summary>This panel automatically builds legend for given <see cref="Plot"/></summary>
-    [Description("Presents legend items for a plot")]    
+    [Description("Presents legend items for a plot")]
     public class LegendItemsPanel : Panel
     {
         private IDisposable unsubsrciber;
@@ -83,7 +83,7 @@ namespace InteractiveDataDisplay.WPF
         }
 
         /// <summary>
-        /// Measures the size in layout required for child elements and determines a size for parent. 
+        /// Measures the size in layout required for child elements and determines a size for parent.
         /// </summary>
         /// <param name="availableSize">The available size that this element can give to child elements. Infinity can be specified as a value to indicate that the element will size to whatever content is available.</param>
         /// <returns>The size that this element determines it needs during layout, based on its calculations of child element sizes.</returns>
@@ -93,11 +93,17 @@ namespace InteractiveDataDisplay.WPF
             foreach (UIElement c in Children)
             {
                 c.Measure(availableSize);
-                result.Width = Math.Max(result.Width, c.DesiredSize.Width);
-                if (!Double.IsInfinity(availableSize.Height))
-                    availableSize.Height = Math.Max(0, availableSize.Height - c.DesiredSize.Height);
-                result.Height += c.DesiredSize.Height;
+                // TODO: Ignore vertical alignment, using horizontal alignment
+                //result.Width = Math.Max(result.Width, c.DesiredSize.Width);
+                //if (!Double.IsInfinity(availableSize.Height))
+                //    availableSize.Height = Math.Max(0, availableSize.Height - c.DesiredSize.Height);
+                //result.Height += c.DesiredSize.Height;
+                result.Height = Math.Max(result.Height, c.DesiredSize.Height);
+                if (!Double.IsInfinity(availableSize.Width))
+                    availableSize.Width = Math.Max(0, availableSize.Width - c.DesiredSize.Width);
+                result.Width += c.DesiredSize.Width;
             }
+            if (Children.Count > 0) result.Width += (Children.Count - 1) * 8; // Padding
             return result;
         }
 
@@ -108,11 +114,19 @@ namespace InteractiveDataDisplay.WPF
         /// <returns>The actual size used.</returns>
         protected override Size ArrangeOverride(Size finalSize)
         {
-            double y = 0;
-            foreach (UIElement c in Children)
+            // TODO: Avoid vertical alignment, using horizontal
+            //double y = 0;
+            //foreach (UIElement c in Children)
+            //{
+            //    c.Arrange(new Rect(new Point(0, y), c.DesiredSize));
+            //    y += c.DesiredSize.Height;
+            //}
+            var x = 0d;
+            for (int i = 0; i < Children.Count; i++)
             {
-                c.Arrange(new Rect(new Point(0, y), c.DesiredSize));
-                y += c.DesiredSize.Height;
+                UIElement c = Children[i];
+                c.Arrange(new Rect(new Point(x, 0), c.DesiredSize));
+                x += c.DesiredSize.Width + 8;
             }
             return finalSize;
         }
@@ -178,7 +192,7 @@ namespace InteractiveDataDisplay.WPF
                 eltype = eltype.BaseType;
             }
             return null;
-        }        
+        }
     }
 }
 

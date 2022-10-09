@@ -6,13 +6,13 @@
     xmlns:d3="clr-namespace:InteractiveDataDisplay.WPF">
 
     <d3:CountToVisibilityConverter x:Key="CountToVisibilityConverter"/>
-    
+
     <Style TargetType="d3:PlotAxis">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="d3:PlotAxis">
                     <Grid>
-                        <d3:Axis x:Name="PART_Axis" 
+                        <d3:Axis x:Name="PART_Axis"
                                  AxisOrientation="{Binding AxisOrientation, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                  IsReversed="{Binding IsReversed, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                  Ticks="{Binding Ticks, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
@@ -52,7 +52,7 @@
                                                        VerticalAlignment="Center"
                                                        IsTabStop="False"/>
                             <d3:PlotAxis x:Name="PART_verticalAxis"
-                                         d3:Figure.Placement="Left" 
+                                         d3:Figure.Placement="Left"
                                          AxisOrientation="Left"
                                          IsReversed = "{Binding IsYAxisReversed, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                          Foreground="{TemplateBinding Foreground}">
@@ -64,13 +64,13 @@
                                          IsXAxisReversed = "{Binding IsXAxisReversed, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                          IsYAxisReversed = "{Binding IsXAxisReversed, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                          Stroke="{TemplateBinding Foreground}" Opacity="0.25"/>
-                            <ContentControl d3:Figure.Placement="Top" 
+                            <ContentControl d3:Figure.Placement="Top"
                                             HorizontalAlignment="Center"
                                             FontSize="16"
                                             Content="{TemplateBinding Title}"
                                             Foreground="{TemplateBinding Foreground}"
                                             IsTabStop="False"/>
-                            <ContentControl d3:Figure.Placement="Bottom" 
+                            <ContentControl d3:Figure.Placement="Bottom"
                                             HorizontalAlignment="Center"
                                             Content="{TemplateBinding BottomTitle}"
                                             Foreground="{TemplateBinding Foreground}"
@@ -80,7 +80,7 @@
                                                        VerticalAlignment="Center"
                                                        IsTabStop="False"/>
                             <d3:PlotAxis x:Name="PART_horizontalAxis"
-                                         d3:Figure.Placement="Bottom" 
+                                         d3:Figure.Placement="Bottom"
                                          AxisOrientation="Bottom"
                                          IsReversed = "{Binding IsXAxisReversed, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                          Foreground="{TemplateBinding Foreground}">
@@ -89,7 +89,7 @@
                             <ContentPresenter/>
                             <Border BorderThickness="{TemplateBinding BorderThickness}"
                                     BorderBrush="{TemplateBinding Foreground}" d3:Figure.Placement="Center"/>
-                            <d3:Legend x:Name="PART_legend" 
+                            <d3:Legend x:Name="PART_legend"
                                        Foreground="Black" Content="{TemplateBinding LegendContent}"
                                        Visibility="{TemplateBinding LegendVisibility}"/>
                         </d3:Figure>
@@ -105,13 +105,12 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="d3:Legend">
-                    <Grid Background="Transparent" Margin="10,10,10,10" VerticalAlignment="Top" 
-                          HorizontalAlignment="Right">
-                        <Rectangle x:Name="legendBorder" Stroke="Black" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
-                            RadiusX="10" RadiusY="10" Fill="White" Opacity="0.75"
+                    <Grid Background="Transparent" Margin="0,10,10, -50" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                        <Rectangle x:Name="legendBorder" Stroke="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                            RadiusX="10" RadiusY="10" Fill="Transparent" Opacity="0.75"
                             Visibility="{Binding ItemsCount, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CountToVisibilityConverter}}"/>
                         <ScrollViewer x:Name="scrollViewer"
-                                      Margin="10,10,10,10" VerticalScrollBarVisibility="Auto" 
+                                      Margin="0" VerticalScrollBarVisibility="Auto"
                                       HorizontalScrollBarVisibility="Auto" IsTabStop="False"
                                       BorderThickness="0">
                             <ContentPresenter/>
